@@ -16,7 +16,7 @@ jobs:
     - uses: actions/checkout@v2
     - name: Build the Docker image of mine
       run: docker build . --file Dockerfile --tag my123:123
-    uses: mr-smithers-excellent/docker-build-push@v5
+    uses: build
     with:
       image: harshametla/docker_image
       registry: docker.io
