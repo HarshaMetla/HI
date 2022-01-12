@@ -16,9 +16,10 @@ jobs:
     - uses: actions/checkout@v2
     - name: Build the Docker image of mine
       run: docker build . --file Dockerfile --tag my123:123
-    uses: build
-    with:
-      image: harshametla/docker_image
-      registry: docker.io
-      username: ${{ secrets.DOCKER_USERNAME }}
-      password: ${{ secrets.DOCKER_PASSWORD }}
+    - name: uploading
+      uses: mr-smithers-excellent/docker-build-push@v5
+      with:
+        image: harshametla/docker_image
+        registry: docker.io
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
